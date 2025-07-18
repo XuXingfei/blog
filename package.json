@@ -1,11 +1,10 @@
 {
-  "name": "blog",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
-  },
   "devDependencies": {
-    "vuepress": "^2.0.0"
+    "vitepress": "^1.6.3"
+  },
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   }
 }
