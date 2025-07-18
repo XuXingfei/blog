@@ -1,31 +1,61 @@
 name: Deploy VitePress to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
+
+permissions:
+    contents: write # 允许推送到 gh-pages 分支
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+    deploy:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+        steps:
+            # 1. 检出源码
+            - name: Checkout
+              uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+            # 2. 缓存 Node 模块加快构建
+            - name: Cache Node.js modules
+              uses: actions/cache@v4
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
 
-      - name: Install dependencies
-        run: npm install
+            # 3. 设置 Node.js
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 18
 
-      - name: Build VitePress site
-        run: npm run build
+            # 4. 安装依赖
+            - name: Install dependencies
+              run: npm ci
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .vitepress/dist
+            # 5. 构建 VitePress
+            - name: Build VitePress site
+              run: npm run build
+
+            # 6. 列出构建目录文件（用于调试）
+            - name: Show build output
+              run: ls -R .vitepress/dist
+
+            # 7. 部署到 GitHub Pages
+            - name: Deploy to GitHub Pages
+              uses: peaceiris/actions-gh-pages@v4
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: .vitepress/dist
+                  publish_branch: gh-pages
+
+            # 8. 打印提示链接
+            - name: Print deploy URL
+              run: |
+                  echo "✅ 部署完成，请访问:"
+                  echo "👉 https://xuxingfei.github.io/blog/"
+                  echo ""
+                  echo "⚠️ 如果没看到更新，请强制刷新浏览器缓存 (Ctrl+F5)，或者添加 ?t=时间戳 访问页面"
