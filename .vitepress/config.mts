@@ -19,6 +19,10 @@ export default defineConfig({
         //         items: [{ text: '前端', link: '/frontends' }],
         //     },
         // ],
+        outline: {
+            label: '本页目录',
+            level: [2, 3], // 表示显示 H2 和 H3 标题
+        },
         socialLinks: [{ icon: 'github', link: 'https://github.com/XuXingfei' }],
     },
 })
