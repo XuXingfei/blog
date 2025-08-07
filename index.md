@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "Blog"
-  text: "个人网络日志"
-  # tagline: 个人随记
+  name: Blog
+  # text: 
+  # tagline: 
   actions:
     - theme: brand
       text: 前端
