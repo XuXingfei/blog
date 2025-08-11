@@ -1,5 +1,17 @@
 # 前端
 
+## uni-app
+
+### 报错
+
+#### 老项目 sass 报错
+
+[css预处理器支持](https://uniapp.dcloud.net.cn/tutorial/syntax-css.html#css-preprocessor)
+
+```json
+"sassImplementationName" : "node-sass"
+```
+
 ## 小程序
 
 ### 微信小程序
