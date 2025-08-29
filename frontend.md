@@ -9,7 +9,7 @@
 [css预处理器支持](https://uniapp.dcloud.net.cn/tutorial/syntax-css.html#css-preprocessor)
 
 ```json
-"sassImplementationName" : "node-sass"
+"sassImplementationName" : "node-sass",
 ```
 
 ## 小程序
@@ -17,7 +17,7 @@
 ### 微信小程序
 
 - 图片编辑
-- 商城云开发
+- 商城-云开发
 
 ## 浏览器
 
