@@ -12,6 +12,14 @@
 "sassImplementationName" : "node-sass",
 ```
 
+### 配置
+
+#### 忽略运行环境版本和编译器版本不一致
+
+```json
+"compatible": { "ignoreVersion": true },
+```
+
 ## 小程序
 
 ### 微信小程序
