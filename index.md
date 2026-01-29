@@ -14,6 +14,9 @@ hero:
       text: 后端
       link: /backend
     - theme: brand
+      text: Python
+      link: /python
+    - theme: brand
       text: 其他
       link: /other
 ---

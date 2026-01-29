@@ -11,6 +11,7 @@ export default defineConfig({
         nav: [
             { text: '前端', link: '/frontend' },
             { text: '后端', link: '/backend' },
+            { text: 'Python', link: '/python' },
             { text: '其他', link: '/other' },
         ],
         // sidebar: [
