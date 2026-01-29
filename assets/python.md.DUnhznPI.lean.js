@@ -1,1 +1,0 @@
-import{_ as i,c as a,o as t,ae as n}from"./chunks/framework.BAYqcHKv.js";const E=JSON.parse('{"title":"Python","description":"","frontmatter":{},"headers":[],"relativePath":"python.md","filePath":"python.md"}'),h={name:"python.md"};function e(l,s,p,k,d,r){return t(),a("div",null,s[0]||(s[0]=[n("",28)]))}const g=i(h,[["render",e]]);export{E as __pageData,g as default};
