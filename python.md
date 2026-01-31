@@ -1449,10 +1449,10 @@ int(), float(), str(), list(), dict(), set(), tuple()
 #### 最常用命令 TOP 20
 ```bash
 python script.py              ## 运行脚本
-python3 -m venv venv          ## 创建虚拟环境
-source venv/bin/activate      ## 激活环境 macOS/Linux
-venv\Scripts\activate         ## 激活环境 Windows
-.\venv\Scripts\Activate.ps1   ## 激活环境 Windows PowerShell
+python -m venv .venv          ## 创建虚拟环境
+source .venv/bin/activate      ## 激活环境 macOS/Linux
+.venv\Scripts\activate         ## 激活环境 Windows
+.\.venv\Scripts\Activate.ps1   ## 激活环境 Windows PowerShell
 deactivate                    ## 退出环境
 pip install package           ## 安装包
 pip install -r requirements.txt  ## 安装依赖
@@ -1981,27 +1981,45 @@ python -c "from urllib.parse import quote; print(quote('中文'))"
 ### 15. Git 相关
 
 ```bash
-## .gitignore 典型内容
-cat > .gitignore << EOF
-venv/
+# Python 字节码
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-*.so
-*.egg
-*.egg-info/
-dist/
-build/
-.pytest_cache/
-.coverage
-.env
-EOF
+*.py[cod]
+*$py.class
 
-## 添加 pre-commit 钩子
-pip install pre-commit
-pre-commit install
+# 虚拟环境
+venv/
+.venv/
+env/
+ENV/
+
+# IDE / 编辑器
+.idea/
+.vscode/
+*.swp
+
+# 构建产物
+build/
+dist/
+*.egg-info/
+
+# 日志 / 临时文件
+*.log
+*.tmp
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 测试 / 覆盖率
+.coverage
+htmlcov/
+.pytest_cache/
+
+# 配置文件（敏感信息）
+.env
+*.env
+config.yaml
+config.json
 ```
 
 ---
@@ -2195,4 +2213,14 @@ for product in products:
         'link': product.attrib.get('href')
     }
 
+```
+
+## 报错
+
+### ModuleNotFoundError
+
+#### No module named 'distutils'
+
+```shell
+python -m pip install -U pip setuptools wheel
 ```
