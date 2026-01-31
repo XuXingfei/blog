@@ -2224,3 +2224,34 @@ for product in products:
 ```shell
 python -m pip install -U pip setuptools wheel
 ```
+
+### RuntimeError
+
+#### It looks like you are using Playwright Sync API inside the asyncio loop.Please use the Async API instead
+
+- 完整安装Playwright依赖： 执行命令`playwright install --with-deps`可以确保所有必要的依赖都已安装，这有时能解决环境配置问题。
+- 在使用Feapder的Playwright功能前，确保已正确安装浏览器内核：`python -m playwright install chromium`
+- 配置Playwright参数： 在Feapder的__custom_setting__中正确配置PLAYWRIGHT参数，特别是将storage_state_path设置为None：
+  
+```python
+__custom_setting__ = dict(
+    PLAYWRIGHT=dict(
+        user_agent=None,
+        proxy=None,
+        headless=False,
+        driver_type="chromium",
+        args=["--lang=zh-CN"],
+        timeout=60,
+        window_size=(1024, 800),
+        executable_path=None,
+        download_path=None,
+        render_time=0,
+        wait_until="networkidle",
+        use_stealth_js=True,
+        storage_state_path=None,
+        save_all=False,
+    ),
+)
+```
+
+- 避免使用下载路径： 如果设置了download_path参数，可能会触发异步环境问题。在不需要下载功能时，建议将其设置为None。
