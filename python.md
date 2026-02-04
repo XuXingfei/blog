@@ -2553,7 +2553,7 @@ for product in products:
 
 ## 报错
 
-### ModuleNotFoundError
+### 模块缺失
 
 #### No module named 'distutils'
 
@@ -2561,7 +2561,7 @@ for product in products:
 python -m pip install -U pip setuptools wheel
 ```
 
-### RuntimeError
+### 运行错误
 
 #### It looks like you are using Playwright Sync API inside the asyncio loop.Please use the Async API instead
 
