@@ -1,0 +1,1 @@
+import{_ as i,c as a,o as h,ae as l}from"./chunks/framework.BAYqcHKv.js";const c=JSON.parse('{"title":"Linux","description":"","frontmatter":{},"headers":[],"relativePath":"linux.md","filePath":"linux.md"}'),e={name:"linux.md"};function t(n,s,p,k,d,r){return h(),a("div",null,s[0]||(s[0]=[l("",1018)]))}const F=i(e,[["render",t]]);export{c as __pageData,F as default};
