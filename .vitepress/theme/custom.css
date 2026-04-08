@@ -1,18 +1,29 @@
 :root {
-  --vp-c-brand-1: #0f6b5d;
-  --vp-c-brand-2: #14806f;
-  --vp-c-brand-3: #2f9a89;
-  --vp-c-brand-soft: rgba(15, 107, 93, 0.14);
-  --vp-c-indigo-1: #c55a2b;
+  --vp-c-brand-1: #2f6fed;
+  --vp-c-brand-2: #2457d6;
+  --vp-c-brand-3: #7fb5ff;
+  --vp-c-brand-soft: rgba(47, 111, 237, 0.12);
+  --vp-c-indigo-1: #59b8ff;
+  --vp-c-bg: #f7fbff;
+  --vp-c-bg-alt: #eef5ff;
+  --vp-c-bg-soft: #f4f8ff;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-text-1: #12233b;
+  --vp-c-text-2: #50627b;
+  --vp-c-text-3: #6b7d96;
+  --vp-c-divider: rgba(72, 110, 168, 0.12);
+  --vp-c-gutter: rgba(72, 110, 168, 0.08);
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(120deg, #0f6b5d 0%, #c55a2b 100%);
+  --vp-home-hero-name-background: linear-gradient(120deg, #2457d6 0%, #59b8ff 100%);
   --vp-font-family-base:
     'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Segoe UI', sans-serif;
   --vp-font-family-mono:
     'JetBrains Mono', 'Fira Code', Consolas, 'Liberation Mono', monospace;
-  --site-paper: rgba(255, 252, 245, 0.82);
-  --site-border: rgba(18, 33, 30, 0.12);
-  --site-shadow: 0 20px 60px rgba(34, 43, 39, 0.08);
+  --site-paper: rgba(249, 252, 255, 0.88);
+  --site-surface: rgba(255, 255, 255, 0.92);
+  --site-border: rgba(72, 110, 168, 0.12);
+  --site-shadow: 0 14px 38px rgba(49, 78, 123, 0.08);
+  --site-glow: rgba(89, 184, 255, 0.14);
   --site-glass: color-mix(in srgb, var(--site-paper) 92%, transparent);
   --site-glass-strong: color-mix(in srgb, var(--site-paper) 97%, transparent);
   --vp-nav-bg-color: var(--site-glass);
@@ -22,19 +33,42 @@
 
 html {
   background:
-    radial-gradient(circle at top left, rgba(15, 107, 93, 0.08), transparent 34%),
-    radial-gradient(circle at top right, rgba(197, 90, 43, 0.1), transparent 26%),
-    #f5efe5;
+    radial-gradient(circle at top left, rgba(47, 111, 237, 0.08), transparent 32%),
+    radial-gradient(circle at top right, rgba(89, 184, 255, 0.1), transparent 24%),
+    linear-gradient(180deg, #fbfdff 0%, #f3f8ff 56%, #eef5ff 100%);
 }
 
 html.dark {
-  --site-paper: rgba(24, 29, 28, 0.82);
-  --site-border: rgba(255, 255, 255, 0.08);
-  --site-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  --vp-c-brand-1: #7fb5ff;
+  --vp-c-brand-2: #5d96ff;
+  --vp-c-brand-3: #b6d7ff;
+  --vp-c-brand-soft: rgba(127, 181, 255, 0.16);
+  --vp-c-bg: #0c1424;
+  --vp-c-bg-alt: #111c30;
+  --vp-c-bg-soft: #16243d;
+  --vp-c-bg-elv: #1a2943;
+  --vp-c-text-1: #e8eefb;
+  --vp-c-text-2: #bcc8de;
+  --vp-c-text-3: #93a5c4;
+  --vp-c-divider: rgba(127, 181, 255, 0.14);
+  --vp-c-gutter: rgba(127, 181, 255, 0.1);
+  --site-paper: rgba(13, 23, 40, 0.84);
+  --site-surface: rgba(20, 34, 58, 0.8);
+  --site-border: rgba(127, 181, 255, 0.14);
+  --site-shadow: 0 24px 64px rgba(3, 10, 23, 0.42);
+  --site-glow: rgba(93, 150, 255, 0.2);
   background:
-    radial-gradient(circle at top left, rgba(47, 154, 137, 0.12), transparent 28%),
-    radial-gradient(circle at top right, rgba(197, 90, 43, 0.14), transparent 24%),
-    #151818;
+    radial-gradient(circle at top left, rgba(93, 150, 255, 0.14), transparent 30%),
+    radial-gradient(circle at top right, rgba(89, 184, 255, 0.12), transparent 24%),
+    linear-gradient(180deg, #0a1221 0%, #0d172a 100%);
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.2);
+}
+
+html.dark ::selection {
+  background: rgba(96, 165, 250, 0.26);
 }
 
 .VPNavBar,
@@ -42,7 +76,7 @@ html.dark {
 .VPLocalNav,
 .VPSidebar {
   background: var(--site-glass);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(14px);
 }
 
 .VPNavBar:not(.home.top) .content-body {
@@ -69,6 +103,34 @@ html.dark {
   border-bottom: 1px solid var(--site-border);
 }
 
+.DocSearch-Button {
+  border: 1px solid var(--site-border) !important;
+  background: color-mix(in srgb, var(--site-surface) 92%, transparent) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.52),
+    0 8px 24px color-mix(in srgb, var(--site-glow) 35%, transparent);
+}
+
+.DocSearch-Button:hover {
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 35%, var(--site-border)) !important;
+  background: color-mix(in srgb, var(--site-surface) 96%, transparent) !important;
+}
+
+.VPButton.brand {
+  border: none;
+  background: linear-gradient(135deg, var(--vp-c-brand-2), var(--vp-c-brand-1));
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--site-glow) 55%, transparent);
+}
+
+.VPButton.brand:hover {
+  background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-indigo-1));
+}
+
+.VPButton.alt {
+  border-color: var(--site-border);
+  background: color-mix(in srgb, var(--site-surface) 96%, transparent);
+}
+
 .VPHero .name,
 .VPDoc h1 {
   font-family:
@@ -91,7 +153,9 @@ html.dark {
 
 .VPFeature {
   border: 1px solid var(--site-border);
-  background: color-mix(in srgb, var(--site-paper) 94%, transparent);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.58), transparent),
+    color-mix(in srgb, var(--site-paper) 94%, transparent);
   box-shadow: var(--site-shadow);
 }
 
@@ -99,7 +163,9 @@ html.dark {
 .home-panel,
 .status-board {
   border: 1px solid var(--site-border);
-  background: color-mix(in srgb, var(--site-paper) 96%, transparent);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62), transparent),
+    color-mix(in srgb, var(--site-paper) 96%, transparent);
   box-shadow: var(--site-shadow);
 }
 
@@ -123,7 +189,7 @@ html.dark {
 .section-eyebrow {
   margin: 0 0 0.5rem;
   color: var(--vp-c-brand-1);
-  font-size: 1.25rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -144,8 +210,8 @@ html.dark {
   border-radius: 22px;
   padding: 1.15rem;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent),
-    color-mix(in srgb, var(--site-paper) 96%, transparent);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.68), transparent),
+    color-mix(in srgb, var(--site-surface) 96%, transparent);
   box-shadow: var(--site-shadow);
   transition:
     transform 0.2s ease,
@@ -156,8 +222,8 @@ html.dark {
 .entry-card:hover,
 .status-card:hover {
   border-color: color-mix(in srgb, var(--vp-c-brand-1) 28%, var(--site-border));
-  transform: translateY(-4px);
-  box-shadow: 0 24px 70px rgba(15, 107, 93, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px color-mix(in srgb, var(--site-glow) 56%, transparent);
 }
 
 .entry-card h3,
@@ -183,6 +249,66 @@ html.dark {
   color: var(--vp-c-brand-1);
   font-size: 0.83rem;
   font-weight: 600;
+}
+
+html.dark .VPFeature {
+  border-color: rgba(127, 181, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(127, 181, 255, 0.1), rgba(18, 31, 53, 0.22) 24%, transparent 72%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.03), transparent 42%),
+    color-mix(in srgb, var(--site-surface) 96%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 22px 54px rgba(2, 8, 23, 0.4);
+}
+
+html.dark .vp-doc .page-lead,
+html.dark .home-panel,
+html.dark .status-board {
+  border-color: rgba(127, 181, 255, 0.14);
+  background:
+    linear-gradient(180deg, rgba(127, 181, 255, 0.08), rgba(17, 29, 48, 0.18) 26%, transparent 78%),
+    color-mix(in srgb, var(--site-paper) 97%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 20px 52px rgba(2, 8, 23, 0.34);
+}
+
+html.dark .entry-card,
+html.dark .status-card {
+  border-color: rgba(127, 181, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(127, 181, 255, 0.12), rgba(21, 34, 58, 0.24) 22%, transparent 74%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), transparent 40%),
+    color-mix(in srgb, var(--site-surface) 98%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 18px 42px rgba(2, 8, 23, 0.4);
+}
+
+html.dark .entry-card:hover,
+html.dark .status-card:hover {
+  border-color: rgba(127, 181, 255, 0.34);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 20px 52px rgba(2, 8, 23, 0.44),
+    0 0 0 1px rgba(127, 181, 255, 0.08);
+}
+
+html.dark .entry-card h3,
+html.dark .status-card h3 {
+  color: #f2f6ff;
+}
+
+html.dark .entry-card p,
+html.dark .status-card p {
+  color: #c4d0e6;
+}
+
+html.dark .entry-meta {
+  background: rgba(127, 181, 255, 0.14);
+  color: #9ec8ff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .status-board {

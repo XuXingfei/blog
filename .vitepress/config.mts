@@ -11,7 +11,7 @@ export default defineConfig({
   lastUpdated: true,
   head: [
     ['link', { rel: 'icon', href: '/blog/favicon.ico' }],
-    ['meta', { name: 'theme-color', content: '#0f6b5d' }],
+    ['meta', { name: 'theme-color', content: '#2563eb' }],
   ],
   themeConfig,
 })
