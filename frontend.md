@@ -1,56 +1,42 @@
+---
+title: 前端专题
+description: 围绕 uni-app、小程序和浏览器调试工具的前端实践记录。
+aside: false
+---
+
 # 前端
 
-## uni-app
+<div class="page-lead">
+  这一栏目前期更偏向工程排错和效率工具，适合已经在做业务项目、需要快速定位问题或提效的前端开发者。
+</div>
 
-### 报错
+## 当前收录
 
-#### 老项目 sass 报错
+<div class="entry-grid">
+  <a class="entry-card" href="./notes/frontend/uni-app.html">
+    <h3>uni-app 常见问题与配置</h3>
+    <p>聚焦旧项目维护中的 Sass 与兼容性配置问题，先帮你把项目跑起来。</p>
+    <span class="entry-meta">排错 / 配置</span>
+  </a>
+  <a class="entry-card" href="./notes/frontend/miniprogram.html">
+    <h3>微信小程序记录</h3>
+    <p>收录微信小程序相关的业务场景、功能记录和常见实践。</p>
+    <span class="entry-meta">入口页</span>
+  </a>
+  <a class="entry-card" href="./notes/frontend/browser-bookmarklets.html">
+    <h3>浏览器 Bookmarklet 工具集</h3>
+    <p>把浏览器当成调试终端，用一组脚本完成自动填充、数据提取和批量操作。</p>
+    <span class="entry-meta">效率工具</span>
+  </a>
+</div>
 
-[css预处理器支持](https://uniapp.dcloud.net.cn/tutorial/syntax-css.html#css-preprocessor)
+## 建议阅读顺序
 
-```json
-"sassImplementationName" : "node-sass",
-```
+1. [uni-app 常见问题与配置](/notes/frontend/uni-app)
+2. [微信小程序记录](/notes/frontend/miniprogram)
+3. [浏览器 Bookmarklet 工具集](/notes/frontend/browser-bookmarklets)
 
-### 配置
+## 适合谁
 
-#### 忽略运行环境版本和编译器版本不一致
-
-```json
-"compatible": { "ignoreVersion": true },
-```
-
-## 小程序
-
-### 微信小程序
-
-- 图片编辑
-- 商城-云开发
-
-## 浏览器
-
-### Bookmarklet
-
-#### uni-app输入账号密码
-
-```js
-javascript:(function(phone=13315511111,pwd="123123"){document.querySelectorAll("uni-input").forEach((i,idx)=>{if(idx<4){if(i.__vue__){if(idx==0){i.__vue__.$emit("update:value",phone)}else{i.__vue__.$emit("update:value",pwd)}}if(i.__vnode){if(idx==0){i.__vnode.ctx.emit("update:modelValue",phone)}else{i.__vnode.ctx.emit("update:modelValue",pwd)}}i.dispatchEvent(new Event("input"))}})})();
-```
-
-#### 输出扩展属性
-
-```js
-javascript:(function() {    var iframe = document.createElement("iframe");    document.body.appendChild(iframe);    var originWindow = iframe.contentWindow,        currentWindow = window;    var origin = Object.keys(originWindow),        current = Object.keys(currentWindow),        extendAttr = {};    current.forEach((key) => {        if (originWindow[key] === undefined) {            extendAttr[key] = currentWindow[key]        };    });    console.log(`origin window:${origin.length},current window:${current.length},extentAttr:${Object.keys(extendAttr).length}`);    console.log(`extendAttr:`,  extendAttr );    document.body.removeChild(iframe);})();
-```
-
-#### kmDoc1
-
-```js
-javascript:(function(){$(document).ready(function(){$("table").on("dblclick",function(){let data={};$(this).find("tbody tr").each(function(){const key=$(this).find("td").first().text().trim();data[key]=""});const jsonString=JSON.stringify(data,null,4).replace(/"(\w+)":/g,"$1:").replace(/"/g,"'");console.log(jsonString);copyToClipboard(jsonString)});$("pre").on("dblclick",function(){const content=$(this).text().trim();copyToClipboard(content)});function copyToClipboard(text){const tempInput=document.createElement("textarea");document.body.appendChild(tempInput);tempInput.value=text;tempInput.select();document.execCommand("copy");document.body.removeChild(tempInput)}})})();
-```
-
-#### kmDoc2
-
-```js
-javascript:(function(){ try { function expandAll() { var plusIcons = document.querySelectorAll('.treeview .expand-icon.glyphicon-plus'); if (plusIcons.length > 0) { plusIcons.forEach(function(icon) { icon.click(); }); setTimeout(expandAll, 200); } else { var hiddenNodes = document.querySelectorAll('.treeview .list-group-item[style*="display: none"], .treeview .list-group-item[style*="display:none"]'); hiddenNodes.forEach(function(node) { node.style.display = 'block'; }); alert('✅ 所有菜单层级已展开完成！'); } } expandAll(); } catch(e) { console.error('展开失败:', e); alert('❌ 展开失败: ' + e.message); } })();
-```
+- 需要维护 uni-app 或小程序项目的前端开发者。
+- 经常在后台系统、管理端页面和文档站中用脚本辅助调试的工程师。

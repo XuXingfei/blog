@@ -1,26 +1,49 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
-  name: Blog
-  # text: 
-  # tagline: 
+  name: 工程笔记
+  tagline: 收录工程实践笔记，兼顾系统学习、快速查阅和日常排错。
   actions:
     - theme: brand
-      text: 前端
-      link: /frontend
-    - theme: brand
-      text: 后端
-      link: /backend
-    - theme: brand
-      text: Python
+      text: 查看归档
+      link: /archive
+    - theme: alt
+      text: 浏览 Python
       link: /python
-    - theme: brand
-      text: Linux
-      link: /linux
-    - theme: brand
-      text: 其他
-      link: /other
+
+features:
+  - title: 系统学习
+    details: 从基础到专题，适合按主题建立完整知识脉络。
+  - title: 快速查阅
+    details: 命令、配置和工具笔记更适合在工作中直接检索使用。
+  - title: 工程实践
+    details: 聚焦真实项目中的排错记录、提效脚本和常见场景总结。
 ---
 
+<div class="home-panel">
+  <p class="section-eyebrow">Reader Routes</p>
+  <h2>按你的阅读目标进入</h2>
+  <div class="entry-grid">
+    <a class="entry-card" href="./python.html">
+      <h3>系统学 Python</h3>
+      <p>从基础语法开始，再进入异步编程、工具链和 HTML/XML 解析实践。</p>
+      <span class="entry-meta">4 篇文章</span>
+    </a>
+    <a class="entry-card" href="./linux.html">
+      <h3>查 Linux 命令</h3>
+      <p>先看高频命令，再看别名优化，最后用完整命令大全做反查。</p>
+      <span class="entry-meta">3 篇文章</span>
+    </a>
+    <a class="entry-card" href="./frontend.html">
+      <h3>看前端工程记录</h3>
+      <p>目前聚焦 uni-app、小程序和浏览器 Bookmarklet 这类贴近业务的问题与工具。</p>
+      <span class="entry-meta">3 篇文章</span>
+    </a>
+    <a class="entry-card" href="./backend.html">
+      <h3>浏览后端专题</h3>
+      <p>围绕 API、数据库、部署与服务治理等方向持续整理后端内容。</p>
+      <span class="entry-meta">专题更新中</span>
+    </a>
+  </div>
+</div>

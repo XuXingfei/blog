@@ -1,0 +1,215 @@
+:root {
+  --vp-c-brand-1: #0f6b5d;
+  --vp-c-brand-2: #14806f;
+  --vp-c-brand-3: #2f9a89;
+  --vp-c-brand-soft: rgba(15, 107, 93, 0.14);
+  --vp-c-indigo-1: #c55a2b;
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #0f6b5d 0%, #c55a2b 100%);
+  --vp-font-family-base:
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+  --vp-font-family-mono:
+    'JetBrains Mono', 'Fira Code', Consolas, 'Liberation Mono', monospace;
+  --site-paper: rgba(255, 252, 245, 0.82);
+  --site-border: rgba(18, 33, 30, 0.12);
+  --site-shadow: 0 20px 60px rgba(34, 43, 39, 0.08);
+  --site-glass: color-mix(in srgb, var(--site-paper) 92%, transparent);
+  --site-glass-strong: color-mix(in srgb, var(--site-paper) 97%, transparent);
+  --vp-nav-bg-color: var(--site-glass);
+  --vp-local-nav-bg-color: var(--site-glass);
+  --vp-sidebar-bg-color: var(--site-glass-strong);
+}
+
+html {
+  background:
+    radial-gradient(circle at top left, rgba(15, 107, 93, 0.08), transparent 34%),
+    radial-gradient(circle at top right, rgba(197, 90, 43, 0.1), transparent 26%),
+    #f5efe5;
+}
+
+html.dark {
+  --site-paper: rgba(24, 29, 28, 0.82);
+  --site-border: rgba(255, 255, 255, 0.08);
+  --site-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  background:
+    radial-gradient(circle at top left, rgba(47, 154, 137, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(197, 90, 43, 0.14), transparent 24%),
+    #151818;
+}
+
+.VPNavBar,
+.VPNavBar.has-sidebar > .wrapper > .container > .title,
+.VPLocalNav,
+.VPSidebar {
+  background: var(--site-glass);
+  backdrop-filter: blur(18px);
+}
+
+.VPNavBar:not(.home.top) .content-body {
+  background: transparent !important;
+}
+
+.VPNavBar.has-sidebar > .wrapper > .container > .title {
+  background: var(--site-glass) !important;
+  border-right: 1px solid var(--site-border);
+}
+
+.VPNavBarTitle.has-sidebar .title {
+  background: transparent !important;
+  border-right: none !important;
+  border-bottom-color: transparent !important;
+}
+
+.VPSidebar {
+  background: var(--vp-sidebar-bg-color);
+  border-right: 1px solid var(--site-border);
+}
+
+.VPLocalNav {
+  border-bottom: 1px solid var(--site-border);
+}
+
+.VPHero .name,
+.VPDoc h1 {
+  font-family:
+    'Iowan Old Style', 'Palatino Linotype', 'Noto Serif SC', 'Source Han Serif SC',
+    Georgia, serif;
+  letter-spacing: -0.03em;
+}
+
+.VPHero .text {
+  max-width: 12ch;
+  font-family:
+    'Iowan Old Style', 'Palatino Linotype', 'Noto Serif SC', 'Source Han Serif SC',
+    Georgia, serif;
+}
+
+.VPHero .tagline {
+  max-width: 680px;
+  font-size: 1.05rem;
+}
+
+.VPFeature {
+  border: 1px solid var(--site-border);
+  background: color-mix(in srgb, var(--site-paper) 94%, transparent);
+  box-shadow: var(--site-shadow);
+}
+
+.vp-doc .page-lead,
+.home-panel,
+.status-board {
+  border: 1px solid var(--site-border);
+  background: color-mix(in srgb, var(--site-paper) 96%, transparent);
+  box-shadow: var(--site-shadow);
+}
+
+.vp-doc .page-lead,
+.home-panel {
+  border-radius: 24px;
+  padding: 1.2rem 1.3rem;
+}
+
+.vp-doc .page-lead {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.04rem;
+  line-height: 1.8;
+}
+
+.home-panel {
+  margin: 2rem 0;
+}
+
+.section-eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--vp-c-brand-1);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.entry-grid,
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.1rem 0 0;
+}
+
+.entry-card,
+.status-card {
+  display: block;
+  border: 1px solid var(--site-border);
+  border-radius: 22px;
+  padding: 1.15rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent),
+    color-mix(in srgb, var(--site-paper) 96%, transparent);
+  box-shadow: var(--site-shadow);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.entry-card:hover,
+.status-card:hover {
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 28%, var(--site-border));
+  transform: translateY(-4px);
+  box-shadow: 0 24px 70px rgba(15, 107, 93, 0.12);
+}
+
+.entry-card h3,
+.status-card h3 {
+  margin: 0;
+  color: var(--vp-c-text-1);
+}
+
+.entry-card p,
+.status-card p {
+  margin: 0.7rem 0 0;
+  color: var(--vp-c-text-2);
+  line-height: 1.7;
+}
+
+.entry-meta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.95rem;
+  padding: 0.26rem 0.58rem;
+  border-radius: 999px;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  font-size: 0.83rem;
+  font-weight: 600;
+}
+
+.status-board {
+  border-radius: 24px;
+  padding: 1.2rem 1.3rem;
+  margin: 1.2rem 0 1.5rem;
+}
+
+.vp-doc a.entry-card {
+  text-decoration: none;
+}
+
+.vp-doc ul li + li,
+.vp-doc ol li + li {
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 640px) {
+  .vp-doc .page-lead,
+  .home-panel,
+  .status-board,
+  .entry-card,
+  .status-card {
+    border-radius: 18px;
+  }
+
+  .home-panel {
+    padding: 1rem;
+  }
+}
