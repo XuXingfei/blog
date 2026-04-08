@@ -17,6 +17,9 @@ hero:
       text: Python
       link: /python
     - theme: brand
+      text: Linux
+      link: /linux
+    - theme: brand
       text: 其他
       link: /other
 ---

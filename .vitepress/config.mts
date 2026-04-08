@@ -12,6 +12,7 @@ export default defineConfig({
             { text: '前端', link: '/frontend' },
             { text: '后端', link: '/backend' },
             { text: 'Python', link: '/python' },
+            { text: 'Linux', link: '/linux' },
             { text: '其他', link: '/other' },
         ],
         // sidebar: [
